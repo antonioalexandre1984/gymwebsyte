@@ -1,0 +1,41 @@
+.Footer-container{
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.Footer-container>hr{
+    border: 1px solid var(--lightgray);
+}
+.footer{
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap:4rem;
+    justify-content: center;
+}
+
+.social-links{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.social-links img{
+    padding-top: 1rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.logo-f{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+}
+.logo-f>img{
+    width: 10rem;
+}

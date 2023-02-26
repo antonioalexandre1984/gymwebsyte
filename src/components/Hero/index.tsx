@@ -1,19 +1,33 @@
 import { Header } from '../Header';
 import './Hero.css';
-//import images from '../../assets/images';
+import NumberCounter from 'number-counter';
 import hero_image from '../../assets/hero_image.png';
 import hero_image_back from '../../assets/hero_image_back.png';
 import heart from '../../assets/heart.png';
 import calories from '../../assets/calories.png';
+import { motion } from 'framer-motion';
 
 export function Hero() {
+  const transition = {
+    type: 'spring',
+    duration: 3,
+  };
+  const mobile = window.innerWidth <= 768 ? true : false;
+
   return (
     <div className="hero">
+      <div className="blur hero-blur"></div>
       <div className="left-h">
         <Header />
         {/* the best ad */}
         <div className="the-best-ad">
-          <div className=""></div>
+          <motion.div
+            initial={{ left: mobile ? "178px" : "238px" }}
+            animate={{ left: '8px' }}
+            transition={{ ...transition, type: "tween" }}
+          >
+          </motion.div>
+          {/*  <div className=""></div> */}
           <span>The Best fitness club in the town</span>
         </div>
         <div className="hero-text">
@@ -31,15 +45,17 @@ export function Hero() {
         { /* figures */}
         <div className="figures">
           <div>
-            <span className="">+140</span>
+            <span className="">
+              <NumberCounter end={140} start={100} delay='4' prefix="+" />
+            </span>
             <span className="">expert coachs</span>
           </div>
           <div>
-            <span className="">+978</span>
+            <span className=""><NumberCounter end={978} start={700} delay='4' prefix="+" /></span>
             <span className="">members joined</span>
           </div>
           <div>
-            <span className="">+50</span>
+            <span className=""><NumberCounter end={50} start={0} delay='2' prefix="+" /></span>
             <span className="">fitness programs</span>
           </div>
         </div>
@@ -51,25 +67,40 @@ export function Hero() {
       </div>
       <div className="right-h">
         <button className="btn">Join Now</button>
-
-        <div className="heart-rate">
+        <motion.div
+          initial={{ right: '-1rem' }}
+          whileInView={{ right: '4rem' }}
+          transition={transition}
+          className="heart-rate">
           <img src={heart} alt="" />
           <span className="span">Heart Rate</span>
           <span className="span">116 bpm</span>
-        </div>
+        </motion.div>
 
         {/* hero images */}
         <img src={hero_image} alt="" className='hero_image' />
         {/* hero image back */}
-        <img src={hero_image_back} alt="" className="hero_image_back" />
+        <motion.img
+          initial={{ right: '11rem' }}
+          whileInView={{ right: '20rem' }}
+          transition={transition}
+          src={hero_image_back} alt="" className="hero_image_back" />
+
+
         {/* calories */}
-        <div className="calories">
+        <motion.div
+          initial={{ right: '37rem' }}
+          whileInView={{ right: '28rem' }}
+          transition={transition}
+          className="calories">
           <img src={calories} alt="" />
           <div>
             <span className="span">Calories Burned</span>
             <span className="span">1,200 kcal</span>
           </div>
-        </div>
+        </motion.div>
+
+
       </div>
     </div>
   );

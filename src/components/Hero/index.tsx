@@ -1,6 +1,6 @@
 import { Header } from '../Header';
 import './Hero.css';
-import NumberCounter from 'number-counter';
+import CountUp from 'react-countup';
 import hero_image from '../../assets/hero_image.png';
 import hero_image_back from '../../assets/hero_image_back.png';
 import heart from '../../assets/heart.png';
@@ -46,16 +46,16 @@ export function Hero() {
         <div className="figures">
           <div>
             <span className="">
-              <NumberCounter end={140} start={100} delay='4' prefix="+" />
+              <CountUp end={140} start={100} duration={4} prefix="+" />
             </span>
             <span className="">expert coachs</span>
           </div>
           <div>
-            <span className=""><NumberCounter end={978} start={700} delay='4' prefix="+" /></span>
+            <span className=""><CountUp end={978} start={700} duration={4} prefix="+" /></span>
             <span className="">members joined</span>
           </div>
           <div>
-            <span className=""><NumberCounter end={50} start={0} delay='2' prefix="+" /></span>
+            <span className=""><CountUp end={50} start={0} duration={4} prefix="+" /></span>
             <span className="">fitness programs</span>
           </div>
         </div>
